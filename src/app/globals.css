@@ -1,26 +1,101 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/effect-fade";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+@theme {
+  --color-forest: #173d25;
+  --color-botanical: #0b2418;
+  --color-leaf: #527b4d;
+  --color-leaf-light: #7e9f76;
+  --color-ivory: #f7f5ed;
+  --color-beige: #e8ddc6;
+  --color-beige-light: #f4efe6;
+  --color-gold: #c5a45d;
+  --color-gold-light: #dfca86;
+  --color-gold-dark: #a4833e;
+  --color-dark: #202b22;
+  --color-dark-muted: #415043;
+  --color-charcoal: #151d16;
+
+  --font-serif: var(--font-cormorant), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-sans-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f5ed;
+  --foreground: #202b22;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f5ed;
+  color: #202b22;
+  font-family: var(--font-sans-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom editorial styling */
+.font-editorial {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* Swiper Hero Enhancements */
+.hero-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  width: 52px;
+  background: #c5a45d;
+}
+
+/* Subtle botanical textures and badges */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #dfca86 0%, #c5a45d 50%, #a4833e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #c5a45d, #dfca86, #c5a45d) 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b2418;
+}
+::-webkit-scrollbar-thumb {
+  background: #527b4d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a45d;
+}
+
+/* Selection */
+::selection {
+  background-color: #173d25;
+  color: #dfca86;
 }
